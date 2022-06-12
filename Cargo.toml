@@ -3,6 +3,17 @@ name = "speeder"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["bin"]
+bin = ["anyhow", "clap", "hound"]
+
+[[bin]]
+name = "speeder"
+path = "src/speeder.rs"
+bench = false
+required-features = ["bin"]
 
 [dependencies]
+anyhow = { version = "1.0.57", optional = true }
+clap = { version = "3.1.18", optional = true }
+hound = { version = "3.4.0", optional = true }
